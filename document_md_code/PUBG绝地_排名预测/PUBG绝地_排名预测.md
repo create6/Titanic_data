@@ -106,9 +106,13 @@
 
 ## MAE(Maean Absolute Error)介绍
  - 就是绝对误差的平均值
+
  - 能更好地反映预测值误差的实际情况
-     $$ MAE(X,h) = \frac{1}{m} \sum_{i=1}^{m} {|h(x^{(i)}) - y^{(i)}|}$$
- 
+     $$
+     MAE(X,h) = \frac{1}{m} \sum_{i=1}^{m} {|h(x^{(i)}) - y^{(i)}|}
+     $$
+
+
 api:
  - sklearn.metrics.mean_absolute_error
 
@@ -156,7 +160,7 @@ train.describe()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -427,15 +431,13 @@ train.describe()
     winPlacePerc       float64
     dtypes: float64(6), int64(19), object(4)
     memory usage: 983.9+ MB
-    
+
 
 可以看到数据一共有4446966条，
 
 
 ```python
 train.shape
-
-
 ```
 
 
@@ -469,7 +471,7 @@ train[train['winPlacePerc'].isnull()]
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -596,7 +598,7 @@ train.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -856,7 +858,7 @@ train[to_show][0:11]
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -1041,7 +1043,7 @@ train[["heals", "boosts", "healsandboosts"]].tail()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -1173,7 +1175,7 @@ train[train['killsWithoutMoving'] == True].head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -1359,7 +1361,7 @@ train[train['roadKills'] > 10]
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -1556,7 +1558,7 @@ train[train['kills'] > 30].head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -1790,7 +1792,7 @@ train[(train['headshot_rate'] == 1) & (train['kills'] > 9)].head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2036,7 +2038,7 @@ train[['walkDistance', 'rideDistance', 'swimDistance', 'totalDistance']].describ
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2156,7 +2158,7 @@ train[train['walkDistance'] >= 10000].head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2363,7 +2365,7 @@ train[train['rideDistance'] >= 20000].head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2570,7 +2572,7 @@ train[train['swimDistance'] >= 2000][["swimDistance"]]
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2684,7 +2686,7 @@ train[train['weaponsAcquired'] >= 80][['weaponsAcquired']].head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2770,7 +2772,7 @@ train[train['heals'] >= 40][["heals"]].head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -2883,7 +2885,7 @@ matchType_encoding.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -3113,7 +3115,7 @@ train[['groupId_cat', 'matchId_cat']].head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -3175,7 +3177,7 @@ train.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -3384,7 +3386,7 @@ df.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -3567,7 +3569,7 @@ print(df.shape, y.shape)
 ```
 
     (1000000, 51) (1000000,)
-    
+
 
 ### 分割训练集和验证集
 
@@ -3595,7 +3597,7 @@ print('Sample train shape: ', X_train.shape,
     Sample train shape:  (880000, 51) 
     Sample target shape:  (880000,) 
     Sample validation shape:  (120000, 51)
-    
+
 
 ## 机器学习（模型训练）和评估
 
@@ -3707,7 +3709,7 @@ imp_df.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -3774,7 +3776,7 @@ imp_df.head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -3847,7 +3849,7 @@ to_keep
 ```
 
     Significant features:  20
-    
+
 
 
 
@@ -3894,7 +3896,7 @@ df[to_keep].head()
     .dataframe tbody tr th {
         vertical-align: top;
     }
-
+    
     .dataframe thead th {
         text-align: right;
     }
@@ -4114,7 +4116,7 @@ print(m2.score)
                min_samples_leaf=3, min_samples_split=2,
                min_weight_fraction_leaf=0.0, n_estimators=40, n_jobs=-1,
                oob_score=False, random_state=None, verbose=0, warm_start=False)>
-    
+
 
 
 ```python
