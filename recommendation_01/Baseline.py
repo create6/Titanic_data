@@ -19,35 +19,31 @@ class BaselineCFBySGD(object):
         #�û���������
         self.users_ratings = dataset.groupby(self.columns[0]).agg([list])[[self.columns[1], self.columns[2]]]
         #�û���������
-        self.items_ratings = dataset.groupby(self.columns[0]).agg([list])[[self.columns[0], self.columns[2]]]
+        self.items_ratings = dataset.groupby(self.columns[1]).agg([list])[[self.columns[0], self.columns[2]]]
         # ����ȫ��ƽ����
         self.global_mean = self.dataset[self.columns[2]].mean()
         # ����sgd����ѵ��ģ�Ͳ���
         self.bu, self.bi = self.sgd()
+        # print(self.bu)
         
     def sgd(self):
-                '''
-        ��������ݶ��½����Ż�bu��bi��ֵ
-        :return: bu, bi
-        
-        '''
-        # ��ʼ��bu��bi��ֵ��ȫ����Ϊ0
+
         bu = dict(zip(self.users_ratings.index, np.zeros(len(self.users_ratings))))
         bi = dict(zip(self.items_ratings.index, np.zeros(len(self.items_ratings))))
         
         #����bu,bi
         #number_epochs ��������,alphaѧϰ��,reg����ϵͳ
-        for i in range(number_epochs):
-            print('inter%d'%i)
+        for i in range(self.number_epochs):
+            # print('inter%d'%i)
             for uid,iid,real_rating in dataset.itertuples(index=False):
                 #��ֵ(������ʧ)  error = ��ʵֵ - Ԥ��ֵ
-                error =real_rating -(global_mean +bu[uid] +bi[iid])
+                error =real_rating -(self.global_mean +bu[uid] +bi[iid])
                 # �ݶ��½����Ƶ�
                 # bu  = bu+��?(��u,i��R(rui?��?bu?bi)?��?bu) 
                 # ����ݶ��½�
                 # bu = bu + a*(error - ��?bu)
-                bu[uid] += alpha *(error -reg*bu[uid])
-                bi[iid] += alpha *(error -reg*bi[iid])
+                bu[uid] += self.alpha *(error -self.reg*bu[uid])
+                bi[iid] += self.alpha *(error -self.reg*bi[iid])
         return bu,bi
     
     #Ԥ��
@@ -62,3 +58,5 @@ dataset = pd.read_csv("../../data/ml-latest-small/ratings.csv", usecols=range(3)
 
 bcf = BaselineCFBySGD(20, 0.1, 0.1, ["userId", "movieId", "rating"])
 bcf.fit(dataset)
+print(bcf.predict(3, 2))
+
