@@ -28,7 +28,7 @@
 
 ##### ndarray到底跟原生python列表有什么不同呢
 
-从图中我们可以看出ndarray在存储数据的时候，数据与数据的地址都是连续的，这样就给使得批量操作数组元素时速度更快。
+ndarray在存储数据的时候，数据与数据的地址都是连续的，这样就给使得批量操作数组元素时速度更快。
 
 这是因为ndarray中的所有元素的类型都是相同的，而Python列表中的元素类型是任意的，所以ndarray在存储元素时内存可以连续，而python原生list就只能通过寻址方式找到下一个元素，这虽然也导致了在通用性能方面Numpy的ndarray不及Python原生list，但在科学计算中，Numpy的ndarray就可以省掉很多循环语句，代码使用方面比Python原生list简单的多。
 
@@ -300,9 +300,15 @@ plt.show()
 
 ![image-20190225170704470](file:///G:/python%E5%AD%A6%E4%B9%A0/%E5%BD%92%E6%A1%A3-%E8%AF%BE%E4%BB%B6-%E8%A7%86%E9%A2%91/%E8%AF%BE%E4%BB%B6/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0_%E7%AE%97%E6%B3%95%E7%AF%87/images/sklearn%E5%8C%85%E5%90%AB%E5%86%85%E5%AE%B9.png)
 
+
+
 ##### classification分类
 
 常用的分类：线性、决策树、SVM、KNN，朴素贝叶斯；集成分类：随机森林、Adaboost、GradientBoosting、Bagging、ExtraTrees
+
+
+
+
 
 ##### regressor 回归
 
@@ -311,21 +317,61 @@ plt.show()
 #from sklearn.linear_model import LinearRegression,SGDRegressor 
 #线性回归模型与梯度下降模型(随机梯度下降算法)
 
+- Ridge regression
+- Logistic regression
+- Ordinary least squares 
+- Bayesian linear regression w/ conjugate priors 贝叶斯定理
+  - Unknown mean, known variance (Gaussian prior)
+  - Unknown mean, unknown variance (Normal-Gamma / Normal-Inverse-Wishart prior)
+
+
+
+
+
 ##### clustering 聚类
 
 常用聚类：k均值（K-means）、层次聚类（Hierarchical clustering）、DBSCAN
+
+
+
+
 
 ##### Dimensionality reduction 降维
 
 常用降维：LinearDiscriminantAnalysis、PCA
 
+
+
+
+
 ##### Model selection 模型选择      
 
 #from sklearn.model_selection import train_test_split,GridSearchCV 数据集分割,网格搜索与交叉验证
 
+
+
+
+
 ##### Preprocessing (特征)预处理   
 
 #from sklearn.preprocessing import StandardScaler,MinMaxScaler 标准化与归一化
+
+- Discrete Fourier transform (1D signals)   离散傅里叶变换
+- Discrete cosine transform (type-II) (1D signals) 离散余弦变换
+- Bilinear interpolation (2D signals)  双线性插值
+- Nearest neighbor interpolation (1D and 2D signals) **最近邻插值**
+- Autocorrelation (1D signals)  [数] 自相关（作用）
+- Signal windowing  信号窗口
+- Text tokenization  文本标记
+- Feature hashing 特征哈希
+- Feature standardization 特征标准化
+- One-hot encoding / decoding 热编码,解码
+  - from sklearn.feature_extraction import DictVectorizer
+- Huffman coding / decoding 霍夫曼编码,解码
+- Term frequency-inverse document frequency encoding  项频率逆文档频率编码
+- MFCC encoding  MFCC编码
+
+
 
 
 
