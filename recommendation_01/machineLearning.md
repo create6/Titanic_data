@@ -1,16 +1,26 @@
----
-
----
-
-
-
-
+#### 
 
 ​    
 
 
 
 ### 机器学习库
+
+
+
+##### Machine Learning
+
+*Libraries for Machine Learning. Also see awesome-machine-learning.*
+
+- [H2O](https://github.com/h2oai/h2o-3) - Open Source Fast Scalable Machine Learning Platform.
+- [Metrics](https://github.com/benhamner/Metrics) - Machine learning evaluation metrics.
+- [NuPIC](https://github.com/numenta/nupic) - Numenta Platform for Intelligent Computing.
+- [scikit-learn](http://scikit-learn.org/) - The most popular Python library for Machine Learning.
+- [Spark ML](http://spark.apache.org/docs/latest/ml-guide.html) - [Apache Spark](http://spark.apache.org/)'s scalable Machine Learning library.
+- [vowpal_porpoise](https://github.com/josephreisinger/vowpal_porpoise) - A lightweight Python wrapper for [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/).
+- [xgboost](https://github.com/dmlc/xgboost) - A scalable, portable, and distributed gradient boosting library.
+
+
 
 #### Numpy
 
@@ -348,7 +358,117 @@ plt.show()
 
 #from sklearn.model_selection import train_test_split,GridSearchCV 数据集分割,网格搜索与交叉验证
 
-
+- 3.1 交叉验证：评估估算器性能
+  - 3.1.1 计算交叉验证的指标
+    - [3.1.1.1 cross_validate函数和多个度量评估](https://scikit-learn.org/stable/modules/cross_validation.html#the-cross-validate-function-and-multiple-metric-evaluation)
+    - [3.1.1.2 通过交叉验证获得预测](https://scikit-learn.org/stable/modules/cross_validation.html#obtaining-predictions-by-cross-validation)
+  - 3.1.2 交叉验证迭代器
+    - 3.1.2.1 iid数据的交叉验证迭代器
+      - [3.1.2.1.1 K-倍](https://scikit-learn.org/stable/modules/cross_validation.html#k-fold)
+      - [3.1.2.1.2 重复K-Fold](https://scikit-learn.org/stable/modules/cross_validation.html#repeated-k-fold)
+      - [3.1.2.1.3 离开一个人（LOO）](https://scikit-learn.org/stable/modules/cross_validation.html#leave-one-out-loo)
+      - [3.1.2.1.4 离开P Out（LPO）](https://scikit-learn.org/stable/modules/cross_validation.html#leave-p-out-lpo)
+      - [3.1.2.1.5 随机排列交叉验证又名Shuffle＆Split](https://scikit-learn.org/stable/modules/cross_validation.html#random-permutations-cross-validation-a-k-a-shuffle-split)
+    - 3.1.2.2 交叉验证迭代器，基于类标签进行分层 
+      - [3.1.2.2.1 分层k倍](https://scikit-learn.org/stable/modules/cross_validation.html#stratified-k-fold)
+      - [3.1.2.2.2 分层随机分裂](https://scikit-learn.org/stable/modules/cross_validation.html#stratified-shuffle-split)
+    - 3.1.2.3 分组数据的交叉验证迭代器 
+      - [3.1.2.3.1 组k倍](https://scikit-learn.org/stable/modules/cross_validation.html#group-k-fold)
+      - [3.1.2.3.2 离开一个小组](https://scikit-learn.org/stable/modules/cross_validation.html#leave-one-group-out)
+      - [3.1.2.3.3 离开P组](https://scikit-learn.org/stable/modules/cross_validation.html#leave-p-groups-out)
+      - [3.1.2.3.4 Group Shuffle Split](https://scikit-learn.org/stable/modules/cross_validation.html#group-shuffle-split)
+    - [3.1.2.4 预定义的折叠 - 拆分/验证集](https://scikit-learn.org/stable/modules/cross_validation.html#predefined-fold-splits-validation-sets)
+    - 3.1.2.5 交叉验证时间序列数据
+      - [3.1.2.5.1 时间序列分裂](https://scikit-learn.org/stable/modules/cross_validation.html#time-series-split)
+  - [3.1.3 关于改组的说明](https://scikit-learn.org/stable/modules/cross_validation.html#a-note-on-shuffling)
+  - [3.1.4 交叉验证和模型选择](https://scikit-learn.org/stable/modules/cross_validation.html#cross-validation-and-model-selection)
+- 3.2 调整估计器的超参数
+  - [3.2.1 穷举网格搜索](https://scikit-learn.org/stable/modules/grid_search.html#exhaustive-grid-search)
+  - [3.2.2 随机参数优化](https://scikit-learn.org/stable/modules/grid_search.html#randomized-parameter-optimization)
+  - 3.2.3 参数搜索提示
+    - [3.2.3.1 指定客观指标](https://scikit-learn.org/stable/modules/grid_search.html#specifying-an-objective-metric)
+    - [3.2.3.2 指定多个评估指标](https://scikit-learn.org/stable/modules/grid_search.html#specifying-multiple-metrics-for-evaluation)
+    - [3.2.3.3 复合估计器和参数空间](https://scikit-learn.org/stable/modules/grid_search.html#composite-estimators-and-parameter-spaces)
+    - [3.2.3.4 模型选择：开发和评估](https://scikit-learn.org/stable/modules/grid_search.html#model-selection-development-and-evaluation)
+    - [3.2.3.5 排比](https://scikit-learn.org/stable/modules/grid_search.html#parallelism)
+    - [3.2.3.6 对失败的坚定性](https://scikit-learn.org/stable/modules/grid_search.html#robustness-to-failure)
+  - 3.2.4 强力参数搜索的替代方案
+    - 3.2.4.1 模型特定的交叉验证
+      - [3.2.4.1.1 `sklearn.linear_model`.ElasticNetCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.ElasticNetCV.html)
+      - [3.2.4.1.2 `sklearn.linear_model`.LarsCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LarsCV.html)
+      - 3.2.4.1.3 `sklearn.linear_model`.LassoCV
+        - [3.2.4.1.3.1 使用示例`sklearn.linear_model.LassoCV`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html#examples-using-sklearn-linear-model-lassocv)
+      - 3.2.4.1.4 `sklearn.linear_model`.LassoLarsCV
+        - [3.2.4.1.4.1 使用示例`sklearn.linear_model.LassoLarsCV`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsCV.html#examples-using-sklearn-linear-model-lassolarscv)
+      - [3.2.4.1.5 `sklearn.linear_model`.LogisticRegressionCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegressionCV.html)
+      - [3.2.4.1.6 `sklearn.linear_model`.MultiTaskElasticNetCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskElasticNetCV.html)
+      - [3.2.4.1.7 `sklearn.linear_model`.MultiTaskLassoCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.MultiTaskLassoCV.html)
+      - 3.2.4.1.8 `sklearn.linear_model`.OrthogonalMatchingPursuitCV
+        - [3.2.4.1.8.1 使用示例`sklearn.linear_model.OrthogonalMatchingPursuitCV`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.OrthogonalMatchingPursuitCV.html#examples-using-sklearn-linear-model-orthogonalmatchingpursuitcv)
+      - 3.2.4.1.9 `sklearn.linear_model`.RidgeCV
+        - [3.2.4.1.9.1 使用示例`sklearn.linear_model.RidgeCV`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeCV.html#examples-using-sklearn-linear-model-ridgecv)
+      - [3.2.4.1.10 `sklearn.linear_model`.RidgeClassifierCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.RidgeClassifierCV.html)
+    - 3.2.4.2 信息标准
+      - 3.2.4.2.1 `sklearn.linear_model`.LassoLarsIC
+        - [3.2.4.2.1.1 使用示例`sklearn.linear_model.LassoLarsIC`](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoLarsIC.html#examples-using-sklearn-linear-model-lassolarsic)
+    - 3.2.4.3 Out of Bag Estimates
+      - 3.2.4.3.1 `sklearn.ensemble`.RandomForestClassifier
+        - [3.2.4.3.1.1 使用示例`sklearn.ensemble.RandomForestClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html#examples-using-sklearn-ensemble-randomforestclassifier)
+      - 3.2.4.3.2 `sklearn.ensemble`.RandomForestRegressor
+        - [3.2.4.3.2.1 使用示例`sklearn.ensemble.RandomForestRegressor`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#examples-using-sklearn-ensemble-randomforestregressor)
+      - 3.2.4.3.3 `sklearn.ensemble`.ExtraTreesClassifier
+        - [3.2.4.3.3.1 使用示例`sklearn.ensemble.ExtraTreesClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesClassifier.html#examples-using-sklearn-ensemble-extratreesclassifier)
+      - 3.2.4.3.4 `sklearn.ensemble`.ExtraTreesRegressor
+        - [3.2.4.3.4.1 使用示例`sklearn.ensemble.ExtraTreesRegressor`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.ExtraTreesRegressor.html#examples-using-sklearn-ensemble-extratreesregressor)
+      - 3.2.4.3.5 `sklearn.ensemble`.GradientBoostingClassifier
+        - [3.2.4.3.5.1 使用示例`sklearn.ensemble.GradientBoostingClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingClassifier.html#examples-using-sklearn-ensemble-gradientboostingclassifier)
+      - 3.2.4.3.6 `sklearn.ensemble`.GradientBoostingRegressor
+        - [3.2.4.3.6.1 使用示例`sklearn.ensemble.GradientBoostingRegressor`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.GradientBoostingRegressor.html#examples-using-sklearn-ensemble-gradientboostingregressor)
+- 3.3 模型评估：量化预测的质量
+  - 3.3.1 该`scoring`参数：定义模型评估规则
+    - [3.3.1.1 常见情况：预定义值](https://scikit-learn.org/stable/modules/model_evaluation.html#common-cases-predefined-values)
+    - [3.3.1.2 从度量函数定义评分策略](https://scikit-learn.org/stable/modules/model_evaluation.html#defining-your-scoring-strategy-from-metric-functions)
+    - [3.3.1.3 实现自己的评分对象](https://scikit-learn.org/stable/modules/model_evaluation.html#implementing-your-own-scoring-object)
+    - [3.3.1.4 使用多指标评估](https://scikit-learn.org/stable/modules/model_evaluation.html#using-multiple-metric-evaluation)
+  - 3.3.2 分类指标
+    - [3.3.2.1 从二进制到多类和多标签](https://scikit-learn.org/stable/modules/model_evaluation.html#from-binary-to-multiclass-and-multilabel)
+    - [3.3.2.2 准确度得分](https://scikit-learn.org/stable/modules/model_evaluation.html#accuracy-score)
+    - [3.3.2.3 平衡准确度得分](https://scikit-learn.org/stable/modules/model_evaluation.html#balanced-accuracy-score)
+    - [3.3.2.4 科恩的卡帕](https://scikit-learn.org/stable/modules/model_evaluation.html#cohen-s-kappa)
+    - [3.3.2.5 混淆矩阵](https://scikit-learn.org/stable/modules/model_evaluation.html#confusion-matrix)
+    - [3.3.2.6 分类报告](https://scikit-learn.org/stable/modules/model_evaluation.html#classification-report)
+    - [3.3.2.7 汉明失利](https://scikit-learn.org/stable/modules/model_evaluation.html#hamming-loss)
+    - 3.3.2.8 精确度，召回率和F度量
+      - [3.3.2.8.1 二进制分类](https://scikit-learn.org/stable/modules/model_evaluation.html#binary-classification)
+      - [3.3.2.8.2 多类和多标签分类](https://scikit-learn.org/stable/modules/model_evaluation.html#multiclass-and-multilabel-classification)
+    - [3.3.2.9 Jaccard相似系数得分](https://scikit-learn.org/stable/modules/model_evaluation.html#jaccard-similarity-coefficient-score)
+    - [3.3.2.10 铰链损失](https://scikit-learn.org/stable/modules/model_evaluation.html#hinge-loss)
+    - [3.3.2.11 记录丢失](https://scikit-learn.org/stable/modules/model_evaluation.html#log-loss)
+    - [3.3.2.12 马修斯相关系数](https://scikit-learn.org/stable/modules/model_evaluation.html#matthews-correlation-coefficient)
+    - [3.3.2.13 多标签混淆矩阵](https://scikit-learn.org/stable/modules/model_evaluation.html#multi-label-confusion-matrix)
+    - [3.3.2.14 接收器工作特性（ROC）](https://scikit-learn.org/stable/modules/model_evaluation.html#receiver-operating-characteristic-roc)
+    - [3.3.2.15 零损失](https://scikit-learn.org/stable/modules/model_evaluation.html#zero-one-loss)
+    - [3.3.2.16 布里尔得分亏损](https://scikit-learn.org/stable/modules/model_evaluation.html#brier-score-loss)
+  - 3.3.3 多标签排名指标
+    - [3.3.3.1 覆盖率错误](https://scikit-learn.org/stable/modules/model_evaluation.html#coverage-error)
+    - [3.3.3.2 标签排名平均精度](https://scikit-learn.org/stable/modules/model_evaluation.html#label-ranking-average-precision)
+    - [3.3.3.3 排名亏损](https://scikit-learn.org/stable/modules/model_evaluation.html#ranking-loss)
+  - 3.3.4 回归指标
+    - [3.3.4.1 解释方差分数](https://scikit-learn.org/stable/modules/model_evaluation.html#explained-variance-score)
+    - [3.3.4.2 最大错误](https://scikit-learn.org/stable/modules/model_evaluation.html#max-error)
+    - [3.3.4.3 平均绝对误差](https://scikit-learn.org/stable/modules/model_evaluation.html#mean-absolute-error)
+    - [3.3.4.4 均方误差](https://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-error)
+    - [3.3.4.5 均方对数误差平均值](https://scikit-learn.org/stable/modules/model_evaluation.html#mean-squared-logarithmic-error)
+    - [3.3.4.6 中位数绝对误差](https://scikit-learn.org/stable/modules/model_evaluation.html#median-absolute-error)
+    - [3.3.4.7 R²分数，决定系数](https://scikit-learn.org/stable/modules/model_evaluation.html#r2-score-the-coefficient-of-determination)
+  - [3.3.5 群集指标](https://scikit-learn.org/stable/modules/model_evaluation.html#clustering-metrics)
+  - [3.3.6 假人估计](https://scikit-learn.org/stable/modules/model_evaluation.html#dummy-estimators)
+- 3.4 模型持久性
+  - [3.4.1 持久性的例子](https://scikit-learn.org/stable/modules/model_persistence.html#persistence-example)
+  - [3.4.2 安全性和可维护性限制](https://scikit-learn.org/stable/modules/model_persistence.html#security-maintainability-limitations)
+- 3.5 验证曲线：绘制分数以评估模型
+  - [3.5.1 验证曲线](https://scikit-learn.org/stable/modules/learning_curve.html#validation-curve)
+  - [3.5.2 学习曲线](https://scikit-learn.org/stable/modules/learning_curve.html#learning-curve)
 
 
 
@@ -372,6 +492,25 @@ plt.show()
 - MFCC encoding  MFCC编码
 
 
+
+5.3 预处理数据
+
+- 5.3.1 标准化，或平均删除和方差缩放
+  - [5.3.1.1 将功能扩展到范围](https://scikit-learn.org/stable/modules/preprocessing.html#scaling-features-to-a-range)
+  - [5.3.1.2 缩放稀疏数据](https://scikit-learn.org/stable/modules/preprocessing.html#scaling-sparse-data)
+  - [5.3.1.3 使用异常值缩放数据](https://scikit-learn.org/stable/modules/preprocessing.html#scaling-data-with-outliers)
+  - [5.3.1.4 居中核矩阵](https://scikit-learn.org/stable/modules/preprocessing.html#centering-kernel-matrices)
+- 5.3.2 非线性变换
+  - [5.3.2.1 映射到统一分布](https://scikit-learn.org/stable/modules/preprocessing.html#mapping-to-a-uniform-distribution)
+  - [5.3.2.2 映射到高斯分布](https://scikit-learn.org/stable/modules/preprocessing.html#mapping-to-a-gaussian-distribution)
+- [5.3.3 正常化](https://scikit-learn.org/stable/modules/preprocessing.html#normalization)
+- [5.3.4 编码分类功能](https://scikit-learn.org/stable/modules/preprocessing.html#encoding-categorical-features)
+- 5.3.5 离散
+  - [5.3.5.1 K-bin离散化](https://scikit-learn.org/stable/modules/preprocessing.html#k-bins-discretization)
+  - [5.3.5.2 特征二值化](https://scikit-learn.org/stable/modules/preprocessing.html#feature-binarization)
+- [5.3.6 估算缺失值](https://scikit-learn.org/stable/modules/preprocessing.html#imputation-of-missing-values)
+- [5.3.7 生成多项式特征](https://scikit-learn.org/stable/modules/preprocessing.html#generating-polynomial-features)
+- [5.3.8 定制变压器](https://scikit-learn.org/stable/modules/preprocessing.html#custom-transformers)
 
 
 
@@ -1218,7 +1357,7 @@ FPR可以理解为错误率,此参数越低,损失越低
 - AUC指标: 在[0.5, 1]之间, 越接近于1模型越接近与最佳模型, 越接近与0.5, 越是乱猜
 - API:
 
-```
+```python
 sklearn.metrics.roc_auc_score(y_true, y_score)
 ```
 
